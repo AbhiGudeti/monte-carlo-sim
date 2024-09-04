@@ -28,4 +28,18 @@ class MonteCarloOptionPricer:
         S = self.simulate_paths()
         payoffs = np.maximum(S[:, -1] - self.K, 0)
         option_price = np.exp(-self.r * self.T) * np.mean(payoffs)
+
+        return option_price
+
+    def price_american_call(self):
+        S = self.simulate_paths()
+        payoffs = np.zeros_like(S)
+
+        for t in range(self.num_steps, -1, -1):
+            payoffs[:, t] = np.maximum(S[:, t] - self.K, 0)
+            if t  <self.num_steps:
+                payoffs[:, t] = np.maximum(payoffs[: , t], np.exp(-self.r * (self.T / self.num_steps)) * payoffs[:, t + 1])
+
+        option_price = np.exp(-self.r * self.T) * np.mean(payoffs[:, 0])
+
         return option_price
