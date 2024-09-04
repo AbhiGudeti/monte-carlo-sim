@@ -5,7 +5,6 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import numpy as np
 from monte_carlo_option_pricer import MonteCarloOptionPricer
 
-
 class OptionPricerUI:
     def __init__(self, master):
         self.master = master
@@ -38,8 +37,15 @@ class OptionPricerUI:
             entry.grid(row=i, column=1, sticky="w", padx=5, pady=2)
             self.entries[key] = entry
 
-        ttk.Button(input_frame, text="Run Simulation", command=self.run_simulation).grid(row=len(parameters), column=0,
-                                                                                         columnspan=2, pady=10)
+        self.option_type = tk.StringVar(value="European")
+        ttk.Radiobutton(input_frame, text="European Call", variable=self.option_type, value="European").grid(
+            row=len(parameters), column=0, sticky="w", padx=5, pady=2)
+        ttk.Radiobutton(input_frame, text="American Call", variable=self.option_type, value="American").grid(
+            row=len(parameters) + 1, column=0, sticky="w", padx=5, pady=2)
+
+        ttk.Button(input_frame, text="Run Simulation", command=self.run_simulation).grid(row=len(parameters) + 2,
+                                                                                         column=0, columnspan=2,
+                                                                                         pady=10)
 
     def create_output_frame(self):
         output_frame = ttk.LabelFrame(self.master, text="Results")
@@ -70,8 +76,12 @@ class OptionPricerUI:
             num_steps=int(params['num_steps'])
         )
 
-        option_price = pricer.price_european_call()
-        self.result_label.config(text=f"Estimated European Call Option Price: {option_price:.4f}")
+        if self.option_type.get() == "European":
+            option_price = pricer.price_european_call()
+        else:
+            option_price = pricer.price_american_call()
+
+        self.result_label.config(text=f"Estimated {self.option_type.get()} Call Option Price: {option_price:.4f}")
 
         self.plot_paths(pricer)
 
@@ -87,7 +97,6 @@ class OptionPricerUI:
         self.ax.set_xlabel('Time')
         self.ax.set_ylabel('Stock Price')
         self.canvas.draw()
-
 
 if __name__ == "__main__":
     root = tk.Tk()
