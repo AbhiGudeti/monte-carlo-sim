@@ -1,10 +1,10 @@
 # monte-carlo-sim
 ## Overview
-The Monte Carlo Option Pricing Simulator is a Python application that allows users to estimate the price of a European call option using the Monte Carlo simulation method. The application is built with a graphical user interface (GUI) using Tkinter, enabling users to input parameters and visualize the results.
+The Monte Carlo Option Pricing Simulator is a Python application that allows users to estimate the price of a European/American call option using the Monte Carlo simulation method. The application is built with a graphical user interface (GUI) using Tkinter, enabling users to input parameters and visualize the results.
 
 ## Features
 Input Parameters: Users can enter key financial parameters such as initial stock price, strike price, time to maturity, risk-free rate, volatility, number of simulations, and number of steps.
-<br/>Simulation: The application performs a Monte Carlo simulation to estimate the price of a European call option.
+<br/>Simulation: The application performs a Monte Carlo simulation to estimate the price of a European/American call option.
 <br/>Visualization: Users can visualize simulated stock price paths over time.
 <br/>Results: The estimated option price is displayed after running the simulation.
 
@@ -18,13 +18,13 @@ Launch the Application: Run the option_pricer_ui.py script to open the simulator
 <br/>Volatility (sigma): Enter the volatility of the stock price.
 <br/>Number of Simulations: Enter the number of Monte Carlo simulations to run.
 <br/>Number of Steps: Enter the number of time steps for each simulation.
-<br/>Run the Simulation: Click the "Run Simulation" button. The estimated European call option price will be displayed in the "Results" section.
+<br/>Run the Simulation: Click the "Run Simulation" button. The estimated European/American call option price will be displayed in the "Results" section.
 <br/>View Simulation Paths: The simulated stock price paths will be plotted in the "Simulated Price Paths" section.
 ## Code Structure
-monte_carlo_option_pricer.py: Contains the MonteCarloOptionPricer class, which implements the logic for simulating stock price paths and pricing the European call option.
+monte_carlo_option_pricer.py: Contains the MonteCarloOptionPricer class, which implements the logic for simulating stock price paths and pricing the European/American call option.
 <br/>option_pricer_ui.py: Contains the OptionPricerUI class, which handles the GUI and interacts with the Monte Carlo pricer to display results and plots.
 <br/><br/>Example
-<br/>To price a European call option with the following parameters:
+<br/>To price a European/American call option with the following parameters:
 <br/>Initial Stock Price: 100
 <br/>Strike Price: 100
 <br/>Time to Maturity: 1 year
