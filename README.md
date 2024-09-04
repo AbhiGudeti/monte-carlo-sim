@@ -8,24 +8,6 @@ Input Parameters: Users can enter key financial parameters such as initial stock
 <br/>Visualization: Users can visualize simulated stock price paths over time.
 <br/>Results: The estimated option price is displayed after running the simulation.
 
-## Installation
-Prerequisites
-<br/> Python 3.x
-<br/>The following Python packages are required:
-<br/>numpy
-<br/>matplotlib
-<br/>tkinter (typically included with Python installations)
-<br/>Steps
-<br/>Clone or download this repository to your local machine.
-<br/>Install the required Python packages by running the following command:
-<br/>ash
-<br/>Copy code
-<br/>pip install numpy matplotlib
-<br/>Run the application:
-<br/>bash
-<br/>Copy code
-<br/>python option_pricer_ui.py
-
 ## Usage
 Launch the Application: Run the option_pricer_ui.py script to open the simulator.
 <br/>Enter Parameters:
