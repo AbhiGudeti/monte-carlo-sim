@@ -5,6 +5,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import numpy as np
 from monte_carlo_option_pricer import MonteCarloOptionPricer
 
+
 class OptionPricerUI:
     def __init__(self, master):
         self.master = master
@@ -97,6 +98,12 @@ class OptionPricerUI:
         self.ax.set_xlabel('Time')
         self.ax.set_ylabel('Stock Price')
         self.canvas.draw()
+
+    def on_closing(self):
+        plt.close('all')
+        self.master.quit()
+        self.master.destroy()
+
 
 if __name__ == "__main__":
     root = tk.Tk()
