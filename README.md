@@ -36,7 +36,7 @@ monte_carlo_option_pricer.py: Contains the MonteCarloOptionPricer class, which i
 
 ## Acknowledgements
 This project uses the Monte Carlo method for option pricing, a fundamental technique in quantitative finance.
-Used UCI's Stock Portfolio Performance Dataset: https://archive.ics.uci.edu/dataset/390/stock+portfolio+performance
+<br/>Used UCI's Stock Portfolio Performance Dataset: https://archive.ics.uci.edu/dataset/390/stock+portfolio+performance
 
 ## Contact
 For any inquiries or questions, please reach out via email at abhigudeti@gmail.com.
